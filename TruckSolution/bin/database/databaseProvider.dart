@@ -7,7 +7,6 @@ import 'dart:io';
 //import 'package:path_provider/path_provider.dart';
 //import 'package:sqflite/sqflite.dart';
 
-ManagedObject<>
 //class DBProvider {
 //  //Private constructor, so only this class can create a single instance of itself resulting in a singleton
 //  DBProvider._();

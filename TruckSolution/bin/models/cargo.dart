@@ -50,23 +50,23 @@ Cargo fakeCargo = new Cargo(1, 1, "00:00:00", "Delivering");
 Cargo stolenCargo = new Cargo(1, 1, "00:00:00", "Stolen");
 
 List<Cargo> fakeCargos = [
-  new Cargo(1, 1, "01:00:00", "Delivering"),
-  new Cargo(2, 1, "10:00:00", "Delivering"),
-  new Cargo(3, 1, "00:05:00", "Delivering"),
-  new Cargo(4, 1, "00:00:00", "Delivering"),
-  new Cargo(5, 1, "02:00:00", "Delivering"),
-  new Cargo(6, 1, "00:00:00", "Delivering"),
-  new Cargo(7, 1, "00:00:00", "Delivering"),
-  new Cargo(8, 1, "00:00:00", "Delivering"),
-  new Cargo(9, 1, "04:00:00", "Delivering"),
-  new Cargo(10, 1, "00:00:00", "Delivering"),
-  new Cargo(11, 1, "00:05:00", "Delivering"),
-  new Cargo(12, 1, "00:00:00", "Delivering"),
-  new Cargo(13, 1, "00:00:00", "Delivering"),
-  new Cargo(14, 1, "3:00:00", "Delivering"),
-  new Cargo(15, 1, "00:00:00", "Delivering"),
-  new Cargo(16, 1, "0:00:00", "Delivering"),
-  new Cargo(17, 1, "00:00:00", "Delivering")
+  new Cargo(001,0,'19:05:00','Delivered'),
+  new Cargo(002,0,'17:30:24','Delivered'),
+  new Cargo(003,1,'00:00:00','Delivering'),
+  new Cargo(004,0,'20:45:00','Delivered'),
+  new Cargo(005,1,'00:00:00','Delivering'),
+  new Cargo(006,1,'00:00:00','Delivering'),
+  new Cargo(007,0,'14:56:32','Delivered'),
+  new Cargo(008,1,'00:00:00','Delivering'),
+  new Cargo(009,1,'00:00:00','Delivering'),
+  new Cargo(010,0,'06:00:00','Delivered'),
+  new Cargo(011,1,'00:00:00','Delivering'),
+  new Cargo(012,0,'22:07:00','Delivered'),
+  new Cargo(013,0,'19:00:03','Delivered'),
+  new Cargo(014,1,'00:00:00','Delivering'),
+  new Cargo(015,1,'00:00:00','Delivering'),
+  new Cargo(016,0,'23:09:33','Delivered'),
+  new Cargo(017,1,'00:00:00','Delivering')
 ];
 
 
