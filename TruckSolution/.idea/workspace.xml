@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b66f6a0e-ae93-43c4-9400-79b29693360a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/database/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/database/databaseProvider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/database/databaseProvider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/models/cargo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/models/cargo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/server.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/server.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/models/logic.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bin/models/logic.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/server.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+            <state relative-caret-position="70">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -31,10 +32,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/database/databaseProvider.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/models/cargo.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+            <state relative-caret-position="244">
+              <caret line="61" column="42" lean-forward="true" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/models/logic.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/database/config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -45,6 +73,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Dart File" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -62,10 +92,15 @@
       <list>
         <option value="$PROJECT_DIR$/bin/client.html" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/bin/database/database.dart" />
         <option value="$PROJECT_DIR$/bin/models/truck.dart" />
-        <option value="$PROJECT_DIR$/bin/models/cargo.dart" />
         <option value="$PROJECT_DIR$/bin/server.dart" />
+        <option value="$PROJECT_DIR$/bin/database/database.dart" />
+        <option value="$PROJECT_DIR$/bin/database/package.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/bin/database/config.json" />
+        <option value="$PROJECT_DIR$/bin/database/databaseProvider.dart" />
+        <option value="$PROJECT_DIR$/bin/models/logic.dart" />
+        <option value="$PROJECT_DIR$/bin/models/cargo.dart" />
       </list>
     </option>
   </component>
@@ -94,6 +129,12 @@
               <item name="TruckSolution" type="b2602c69:ProjectViewProjectNode" />
               <item name="TruckSolution" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TruckSolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TruckSolution" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TruckSolution" type="b2602c69:ProjectViewProjectNode" />
@@ -151,7 +192,7 @@
       <option name="presentableId" value="Default" />
       <updated>1548573505092</updated>
       <workItem from="1548573506463" duration="12008000" />
-      <workItem from="1548597006033" duration="7982000" />
+      <workItem from="1548597006033" duration="11278000" />
     </task>
     <task id="LOCAL-00001" summary="Delta Cargo backend">
       <created>1548597124556</created>
@@ -174,29 +215,43 @@
       <option name="project" value="LOCAL" />
       <updated>1548599312282</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Backend Api updates">
+      <created>1548607767056</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1548607767056</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Working on database">
+      <created>1548610008820</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1548610008820</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19990000" />
+    <option name="totallyTimeSpent" value="23286000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1432" height="948" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19206236" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19206236" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29205608" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29205608" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.32943925" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32943925" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32943925" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32943925" />
@@ -233,7 +288,9 @@
     <MESSAGE value="Delta Cargo backend" />
     <MESSAGE value="Working on cargo" />
     <MESSAGE value="Finished cargo json class update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished cargo json class update" />
+    <MESSAGE value="Backend Api updates" />
+    <MESSAGE value="Working on database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on database" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/local/Cellar/dart/2.1.0/libexec/lib/async/future.dart">
@@ -281,24 +338,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/database/database.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/Cellar/dart/2.1.0/libexec/lib/convert/encoding.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/models/cargoOld.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -347,20 +390,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/models/cargo.dart">
+    <entry file="file://$PROJECT_DIR$/bin/models/cargoOld.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+        <state relative-caret-position="180">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/database/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/database/database.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/database/databaseProvider.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/database/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/models/logic.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/server.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+        <state relative-caret-position="70">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/models/cargo.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="61" column="42" lean-forward="true" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
         </state>
       </provider>
     </entry>

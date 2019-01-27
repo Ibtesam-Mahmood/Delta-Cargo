@@ -27,30 +27,27 @@ var _handlers = {
   "setMove": _post["setMove"]
 };
 
-
 Map<String, String> jsonHeader = {
   'Content-type' : 'application/json',
   'Accept': 'application/json',
 };
 
-
 Map<String, String> setMoveErrorHeader = {
   "code": "21211",
   "message": "Missing Data for id or moving",
-  "more_info": "ask ISaiah to make documents for the api",
+  "more_info": "ask Isaiah to make documents for the api",
   "status": "304"
 };
 
-
 shelf.Response _getTrucks(shelf.Request request){
-  String json = stolenCargo.toJson();
-  return shelf.Response.ok(json, headers: jsonHeader);
-}
-shelf.Response _getStolenTruck(shelf.Request request){
   String json = getFakeCargosJson();
   return shelf.Response.ok(json, headers: jsonHeader);
 }
 
+shelf.Response _getStolenTruck(shelf.Request request){
+  String json = stolenCargo.toJson();
+  return shelf.Response.ok(json, headers: jsonHeader);
+}
 
 shelf.Response _getTruck(shelf.Request request){
   String json = stolenCargo.toJson();
@@ -79,6 +76,7 @@ shelf.Response _handler(shelf.Request request) {
   );
   return r;
 }
+
 
 
 Middleware middle = (homeHandler) {

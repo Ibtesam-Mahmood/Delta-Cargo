@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "posgres",
+    "password": 123,
+    "database": "deltacargo",
+    "host": "localhost",
+
+  }
+}
