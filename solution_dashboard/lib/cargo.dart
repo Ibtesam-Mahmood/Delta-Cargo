@@ -2,11 +2,10 @@ class Cargo{
 
   final int id;
   bool _moving;
-  DateTime _nextDep;
+  final String nextDep;
   final String status;
 
-  Cargo(this.id, int moved, String date, this.status){
-    this._nextDep = DateTime.parse("2019-01-27 " + date);
+  Cargo(this.id, int moved, this.nextDep, this.status){
     _moving = moved>=1?true:false;
   }
 
@@ -18,10 +17,6 @@ class Cargo{
 
   bool getMoving(){
     return _moving;
-  }
-
-  DateTime getDateTime(){
-    return _nextDep;
   }
 
 }
