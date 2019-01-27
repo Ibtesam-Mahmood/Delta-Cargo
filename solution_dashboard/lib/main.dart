@@ -11,7 +11,7 @@ class AppDashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Solution",
+      title: "Delta Cargo Dashboard",
       theme: ThemeData(
         primaryColor: Color(0xFF03254E),
         textSelectionColor: Color(0xFF545677),
@@ -21,8 +21,8 @@ class AppDashBoard extends StatelessWidget {
         backgroundColor: Color(0xFF3B4975),
         body: DashBoard(),
         appBar: AppBar(
-          leading: Image(image: AssetImage('lib/assets/cargo.jpg')),
-          // centerTitle: Platform.isIOS?true:false,
+          title: Image(image: AssetImage('lib/assets/cargo.jpg')),
+          centerTitle: Platform.isIOS?true:false,
           actions: <Widget>[
             InkWell(child: Container(child: Icon(Icons.autorenew), margin: EdgeInsets.only(right: 20),)),
           ],
