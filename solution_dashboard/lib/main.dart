@@ -140,7 +140,7 @@ class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 5),
+      margin: EdgeInsets.only(top: 5, bottom: 40),
       child: ListView.builder(
         itemCount: cargoList.length,
         itemBuilder: (context, i) => _listTimeBuilder(context, i),
