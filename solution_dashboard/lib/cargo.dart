@@ -18,7 +18,7 @@ class Cargo{
   }
 
   factory Cargo.fromMap(Map<String, dynamic> map) {
-    return new Cargo(map["id"], map["moving"], map["nextDep"], map["status"]);
+    return new Cargo(map["id"], map["moving"]?1:0, map["nextDep"], map["status"]);
   }
 
   Map<String, dynamic> getMap() {
