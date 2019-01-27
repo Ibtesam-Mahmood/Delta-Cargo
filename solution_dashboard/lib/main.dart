@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
+import 'cargo.dart';
 
 void main() => runApp(AppDashBoard());
 
@@ -33,6 +34,8 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
+  final List<Cargo> cargoList = [Cargo(1, 0, "00:00:00", "Delivered")];
+
   @override
   Widget build(BuildContext context) {
     return Container(
