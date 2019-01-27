@@ -1,0 +1,17 @@
+name: TruckSolution
+description: A web server built using the shelf package.
+# version: 1.0.0
+# homepage: https://www.example.com
+# author: isaiah <email@example.com>
+
+environment:
+  sdk: '>=2.1.0 <3.0.0'
+
+dependencies:
+  args: ^1.4.2
+  shelf: ^0.7.2
+
+  json_serializable: ^2.0.1
+
+#dev_dependencies:
+#  test: ^1.0.0
