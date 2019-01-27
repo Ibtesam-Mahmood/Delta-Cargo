@@ -4,45 +4,81 @@ import 'package:args/args.dart';
 import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as io;
+import 'models/cargo.dart';
+
+var _get = {
+  "testTruck": _getTruck,
+  "getTrucks": _getTrucks,
+  "getStolenTruck":_getStolenTruck
+};
+
+var _post = {
+  "setMove": _setMove
+};
 
 var _handlers = {
   "isaiah": _isaiah,
   "ibtesam": _ibtesam,
-  "esha": _esha
+  "esha": _esha,
+
+  "getTruck": _get["testTruck"],
+  "getTrucks":_get["getTrucks"],
+  "getStolenTruck":_get["getStolenTruck"],
+  "setMove": _post["setMove"]
 };
 
-var _get = {
-  "truck": _getTruck,
-};
 
-shelf.Response _getTruck(shelf.Request request){
-  final client = File("bin/client.html").readAsStringSync();
-
-  return shelf.Response.ok(client);
-}
-
-//
-//shelf.Response _handler(shelf.Request request) =>
-//    shelf.Response.ok('welcome - :)');
-
-
-Map<String, String> headers = {
+Map<String, String> jsonHeader = {
   'Content-type' : 'application/json',
   'Accept': 'application/json',
 };
 
-shelf.Response _handler(shelf.Request request) {
 
-  shelf.Response r = shelf.Response.ok(
-      "{wow:'wow'}",//File("bin/client.html").readAsStringSync(),
-      headers: headers
-  );
+Map<String, String> setMoveErrorHeader = {
+  "code": "21211",
+  "message": "Missing Data for id or moving",
+  "more_info": "ask ISaiah to make documents for the api",
+  "status": "304"
+};
 
-  return r;
 
+shelf.Response _getTrucks(shelf.Request request){
+  String json = stolenCargo.toJson();
+  return shelf.Response.ok(json, headers: jsonHeader);
+}
+shelf.Response _getStolenTruck(shelf.Request request){
+  String json = getFakeCargosJson();
+  return shelf.Response.ok(json, headers: jsonHeader);
 }
 
 
+shelf.Response _getTruck(shelf.Request request){
+  String json = stolenCargo.toJson();
+  return shelf.Response.ok(json, headers: jsonHeader);
+}
+
+
+Future<shelf.Response> _setMove(shelf.Request request) async {
+  Map<String, String> parameters = request.url.queryParameters;
+  String id = parameters["id"];
+  String moveString = parameters["moving"];// == "true";
+
+  if (id == null || moveString == null)
+    return shelf.Response.notModified(headers: setMoveErrorHeader);
+
+  bool moving = moveString == "true";
+  String msg  = ("setting cargo $id moving to $moving");
+  print(msg);
+  return shelf.Response.ok(msg);
+}
+
+shelf.Response _handler(shelf.Request request) {
+  shelf.Response r = shelf.Response.ok(
+      "Welcome to le app ;) plz enjoy <3",//File("bin/client.html").readAsStringSync(),
+      headers: jsonHeader
+  );
+  return r;
+}
 
 
 Middleware middle = (homeHandler) {
@@ -69,11 +105,11 @@ Middleware middle = (homeHandler) {
 
 };
 
+
 main(List<String> args) async {
   var parser = ArgParser()..addOption('port', abbr: 'p', defaultsTo: '8080');
 
   var result = parser.parse(args);
-
   var port = int.tryParse(result['port']);
 
   if (port == null) {
@@ -92,6 +128,7 @@ main(List<String> args) async {
   var server = await io.serve(handler, 'localhost', port);
   print('Serving at http://${server.address.host}:${server.port}');
 }
+
 
 shelf.Response _pathNotFound(shelf.Request request) =>
     shelf.Response.ok('path not found');
