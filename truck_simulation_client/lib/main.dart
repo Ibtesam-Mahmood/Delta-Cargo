@@ -90,7 +90,7 @@ class LayoutWidgetState extends State<LayoutWidget> {
                 })
               ),
             ),
-            RaisedButton(child: Text("Move Vehicle " + id.toString()), onPressed: (){_setMove();},),
+            RaisedButton(child: Text("Move Trailer " + id.toString()), onPressed: (){_setMove();},),
             Padding(padding: EdgeInsets.all(10),),
             Text("Next Departure At: ${timeToDeparture.substring(0,5)}", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 20)),
           ],

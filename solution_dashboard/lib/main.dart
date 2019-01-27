@@ -53,7 +53,6 @@ class _DashBoardState extends State<DashBoard> {
     final response =
         await http.get("http://isaiah.localhost.run/getTruck");
 
-
     if (response.statusCode == 200) {
       // If server returns an OK response, parse the JSON
       await _addCargo(json.decode(response.body));
@@ -72,7 +71,9 @@ class _DashBoardState extends State<DashBoard> {
       decoded['status']
     );
     cargoList.add(temp);
-    setState(() {}); //update widget
+    setState(() {
+      cargoList.sort((a,b) {return (a.status=="Stolen")?1:0;});
+    }); //update widget
     return null;
   }
 
