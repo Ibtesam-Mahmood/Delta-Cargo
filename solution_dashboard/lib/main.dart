@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'cargo.dart';
 import 'widgets/titledwidget.dart';
+import "package:http/http.dart" as http;
+import 'dart:convert';
 
 void main() => runApp(AppDashBoard());
 
@@ -19,8 +21,8 @@ class AppDashBoard extends StatelessWidget {
         backgroundColor: Color(0xFF3B4975),
         body: DashBoard(),
         appBar: AppBar(
-          title: Text("Cargo Dashboard"),
-          centerTitle: Platform.isIOS?true:false,
+          leading: Image(image: AssetImage('lib/assets/cargo.jpg')),
+          // centerTitle: Platform.isIOS?true:false,
           actions: <Widget>[
             InkWell(child: Container(child: Icon(Icons.autorenew), margin: EdgeInsets.only(right: 20),)),
           ],
@@ -45,9 +47,34 @@ class _DashBoardState extends State<DashBoard> {
     else return Icon(Icons.warning, color: Color(0xFFCC0000),);
   }
 
-        //   title: Text(cargoList[i].nextDep.toString()),
-        // subtitle: Text("ID: " + cargoList[i].id.toString()),
-        // trailing: _getTrailingIcon(cargoList[i].status),
+  //makes an API call for to the IEX stock api
+  Future<void> fetchPost() async {
+    //Parameters to the API call
+    final response =
+        await http.get("http://isaiah.localhost.run/getTruck");
+
+
+    if (response.statusCode == 200) {
+      // If server returns an OK response, parse the JSON
+      await _addCargo(json.decode(response.body));
+    } else {
+      // If that response was not OK, throw an error.
+      print('Failed to load post');
+    }
+  }
+
+  //Takes a json and extracts the stock infromation and adds it to the list
+  Future<void> _addCargo(Map<String, dynamic> decoded){
+    Cargo temp = new Cargo(
+      decoded['id'],
+      decoded['moving']==true?1:0,
+      decoded['nextDep'],
+      decoded['status']
+    );
+    cargoList.add(temp);
+    setState(() {}); //update widget
+    return null;
+  }
 
   Widget _listTimeBuilder(BuildContext context, int i){
     return Card(
@@ -59,6 +86,13 @@ class _DashBoardState extends State<DashBoard> {
         trailing: TitledWidget(text: "Moving", widget: Icon(cargoList[i].getMoving()?Icons.forward:Icons.block)),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    fetchPost();
   }
 
   @override
