@@ -5,6 +5,7 @@ import 'widgets/titledwidget.dart';
 import "package:http/http.dart" as http;
 import 'dart:convert';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'dart:async';
 
 void main() => runApp(AppDashBoard());
 
@@ -94,7 +95,16 @@ class _DashBoardState extends State<DashBoard> {
       // If that response was not OK, throw an error.
       print('Failed to load post');
     }
+
+    setState(() {
+      fetchPost();
+    });
   }
+
+  Future asyncLoop() async{
+    sleep(Duration(seconds: 2));
+  }
+
   
   List<Cargo> getCargoListFromJson(String json) {
     List<Cargo> cargos = new List();
@@ -124,21 +134,24 @@ class _DashBoardState extends State<DashBoard> {
         title: Text("Next Departure:" + cargoList[i].nextDep.substring(0,5).toString()),
         subtitle: Text("ID: " + cargoList[i].id.toString()),
         trailing: TitledWidget(text: "Moving", widget: Icon(cargoList[i].getMoving()?Icons.forward:Icons.block)),
+        onTap: (){setState(() {
+          fetchPost();
+        });},
       ),
     );
   }
 
+
   @override
   void initState() {
     super.initState();
-
-
 
     fetchPost();
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       margin: EdgeInsets.only(top: 5, bottom: 40),
       child: ListView.builder(

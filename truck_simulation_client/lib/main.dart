@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:numberpicker/numberpicker.dart';
 import 'dart:convert';
+import 'cargo.dart';
 
 void main() => runApp(ClientApp());
 
@@ -48,16 +49,25 @@ class LayoutWidgetState extends State<LayoutWidget> {
   Future<void> fetchPost() async {
     //Parameters to the API call
     final response =
-        await http.get("http://isaiah.localhost.run/getTruck");
+        await http.get("http://isaiah.localhost.run/getTrucks");
 
 
     if (response.statusCode == 200) {
       // If server returns an OK response, parse the JSON
-      timeToDeparture = json.decode(response.body)['nextDep'];
+      timeToDeparture = getCargoListFromJson(response.body)[id-1].nextDep;
+      setState(() {});
     } else {
       // If that response was not OK, throw an error.
       print('Failed to load post');
     }
+  }
+
+  List<Cargo> getCargoListFromJson(String json) {
+    List<Cargo> cargos = new List();
+    List<dynamic> dynamicList = jsonDecode(json);
+    for (String cargoJson in dynamicList)
+      cargos.add(Cargo.fromJson(cargoJson));
+    return cargos;
   }
 
   @override
@@ -81,16 +91,19 @@ class LayoutWidgetState extends State<LayoutWidget> {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
               child: NumberPicker.integer(
+                infiniteLoop: true,
                 initialValue: 1,
                 minValue: 1,
                 maxValue: 17,
                 onChanged: (newValue) =>setState((){
-                  id = newValue;
-                  fetchPost();
+                  if(newValue != null){
+                    id = newValue;
+                    fetchPost();
+                  }
                 })
               ),
             ),
-            RaisedButton(child: Text("Move Trailer " + id.toString()), onPressed: (){_setMove();},),
+            RaisedButton(child: Text("Move Trailer " + (id).toString()), onPressed: (){_setMove();},),
             Padding(padding: EdgeInsets.all(10),),
             Text("Next Departure At: ${timeToDeparture.substring(0,5)}", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 20)),
           ],
