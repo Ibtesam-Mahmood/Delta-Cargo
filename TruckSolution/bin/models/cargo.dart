@@ -2,12 +2,12 @@ import 'dart:convert';
 class Cargo {
 
   final int id;
-  bool _moving;
+  bool moving;
   final String nextDep;
-  final String status;
+  String status;
 
   Cargo(this.id, int moved, this.nextDep, this.status){
-    _moving = moved>=1?true:false;
+    moving = moved>=1?true:false;
   }
 
   factory Cargo.fromJson(String json) {
@@ -23,7 +23,7 @@ class Cargo {
   Map<String, dynamic> getMap() {
     return {
       "id": id,
-      "moving":  _moving,
+      "moving":  moving,
       "nextDep":    nextDep,
       "status":   status
     };
@@ -34,15 +34,13 @@ class Cargo {
     return jsonEncode(map);
   }
 
-
   //returns true if the object is moving past the time indicated (stolen)
   //returns false if the object is in the state in which it should be
   bool getStolen(){
     return status=="Stolen"?true:false;
   }
-
   bool getMoving(){
-    return _moving;
+    return moving;
   }
 }
 
@@ -73,7 +71,6 @@ List<Cargo> fakeCargos = [
 String getFakeCargosJson() {
   return getJsonListFromCargoList(fakeCargos);
 }
-
 
 List<Cargo> getCargoListFromJson(String json) {
   List<Cargo> cargos = new List();
