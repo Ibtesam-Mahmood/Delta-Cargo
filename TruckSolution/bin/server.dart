@@ -5,7 +5,7 @@ import 'package:shelf/shelf.dart' as shelf;
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as io;
 import 'models/cargo.dart';
-
+import "models/logic.dart";
 var _get = {
   "testTruck": _getTruck,
   "getTrucks": _getTrucks,
@@ -50,6 +50,20 @@ shelf.Response _getStolenTruck(shelf.Request request){
 }
 
 shelf.Response _getTruck(shelf.Request request){
+  Map<String, String> parameters = request.url.queryParameters;
+  String id = parameters["id"];
+
+  if (id != null) {
+    Cargo cargo = getCargoFromId(int.parse(id));
+    if (cargo != null) {
+      if (!isAllowedToMove(cargo)) {
+        print("POSSIBLE THEFT!!!");
+        possibleTheft.add(cargo);
+        cargo.status = "Stolen";
+      }
+    }
+  }
+
   String json = stolenCargo.toJson();
   return shelf.Response.ok(json, headers: jsonHeader);
 }
@@ -58,16 +72,29 @@ shelf.Response _getTruck(shelf.Request request){
 Future<shelf.Response> _setMove(shelf.Request request) async {
   Map<String, String> parameters = request.url.queryParameters;
   String id = parameters["id"];
-  String moveString = parameters["moving"];// == "true";
-
+  String moveString = parameters["move"];// == "true";
+  print("id = " + id + " moveString = " + moveString);
   if (id == null || moveString == null)
     return shelf.Response.notModified(headers: setMoveErrorHeader);
 
-  bool moving = moveString == "true";
+  bool moving = moveString == "true" || moveString == "1";
+  Cargo cargo = getCargoFromId(int.parse(id));
+  if (!isAllowedToMove(cargo) && moving) {
+    print("POSSIBLE THEFT!!!");
+    possibleTheft.add(cargo);
+    cargo.status = "Stolen";
+    cargo.moving = true;
+
+  }
+ getCargoFromId(int.parse(id));
+
+
   String msg  = ("setting cargo $id moving to $moving");
   print(msg);
   return shelf.Response.ok(msg);
 }
+
+
 
 shelf.Response _handler(shelf.Request request) {
   shelf.Response r = shelf.Response.ok(
@@ -119,7 +146,7 @@ main(List<String> args) async {
   }
 
   var handler = const shelf.Pipeline()
-      .addMiddleware(shelf.logRequests())
+//      .addMiddleware(shelf.logRequests())
       .addMiddleware(middle)
       .addHandler(_handler);
 
